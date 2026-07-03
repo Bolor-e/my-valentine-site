@@ -42,14 +42,19 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 const moveButton = (e) => {
-  const padding = 80;
+  const padding = 100;
 
   const x = Math.random() * (window.innerWidth - padding);
   const y = Math.random() * (window.innerHeight - padding);
 
-  e.currentTarget.style.position = "fixed";
-  e.currentTarget.style.left = `${x}px`;
-  e.currentTarget.style.top = `${y}px`;
+  const el = e.currentTarget;
+
+  el.style.position = "fixed";
+  el.style.left = `${x}px`;
+  el.style.top = `${y}px`;
+
+  // ❌ IMPORTANT: remove transform (this is your bug)
+  el.style.transform = "none";
 };
   return (
     <main style={styles.container}>
@@ -90,16 +95,16 @@ const moveButton = (e) => {
 
           {/* NO BUTTON (RUNS AWAY) */}
           <button
-            onClick={moveButton}
-            onTouchStart={moveButton}
-            style={{
-            ...styles.buttonSecondary,
-            position: "fixed",
-            left: "50%",
-            top: "65%",
-            transform: "translate(-50%, -50%)",
-            transition: "0.15s",
-            zIndex: 9999,
+  onClick={moveButton}
+  onTouchStart={moveButton}
+  style={{
+    ...styles.buttonSecondary,
+    position: "fixed",
+    left: "50%",
+    top: "65%",
+    transform: "translate(-50%, -50%)", // only initial state
+    transition: "0.15s",
+    zIndex: 9999,
   }}
 >
   No ❌
