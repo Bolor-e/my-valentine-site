@@ -41,7 +41,16 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, []);
+const moveButton = (e) => {
+  const padding = 80;
 
+  const x = Math.random() * (window.innerWidth - padding);
+  const y = Math.random() * (window.innerHeight - padding);
+
+  e.currentTarget.style.position = "fixed";
+  e.currentTarget.style.left = `${x}px`;
+  e.currentTarget.style.top = `${y}px`;
+};
   return (
     <main style={styles.container}>
 
@@ -81,40 +90,21 @@ export default function Home() {
 
           {/* NO BUTTON (RUNS AWAY) */}
           <button
-  onMouseEnter={(e) => {
-    const padding = 80;
-
-const x = Math.random() * (window.innerWidth - padding);
-const y = Math.random() * (window.innerHeight - padding);
-
-    e.currentTarget.style.position = "absolute";
-    e.currentTarget.style.left = `${x}px`;
-    e.currentTarget.style.top = `${y}px`;
+            onClick={moveButton}
+            onTouchStart={moveButton}
+            style={{
+            ...styles.buttonSecondary,
+            position: "fixed",
+            left: "50%",
+            top: "65%",
+            transform: "translate(-50%, -50%)",
+            transition: "0.15s",
+            zIndex: 9999,
   }}
-
-  onClick={(e) => {
-    const padding = 80;
-
-const x = Math.random() * (window.innerWidth - padding);
-const y = Math.random() * (window.innerHeight - padding);
-
-    e.currentTarget.style.position = "absolute";
-    e.currentTarget.style.left = `${x}px`;
-    e.currentTarget.style.top = `${y}px`;
-  }}
-
-  style={{
-  ...styles.buttonSecondary,
-  position: "absolute",
-  left: "50%",
-  top: "65%",
-  transform: "translate(-50%, -50%)",
-  transition: "0.2s",
-  zIndex: 10
-}}
 >
   No ❌
 </button>
+
         </div>
       )}
 
