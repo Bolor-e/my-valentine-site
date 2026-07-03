@@ -65,10 +65,10 @@ export default function Home() {
       {/* 🌸 STEP 1 */}
       {step === 0 && (
         <div style={{ ...styles.center, opacity: fade ? 1 : 0, transition: "0.5s" }}>
-          <h1 style={styles.title}>Hi</h1>
+          <h1 style={styles.title}>Сайн уу</h1>
 
           <p style={styles.text}>
-            Before anything else... I just want a moment of your time
+            Би чамайг хэсэгхэн хором гаргаад энийг уншаасай гэж хүсэж байна.
           </p>
 
           {/* YES BUTTON */}
@@ -76,14 +76,16 @@ export default function Home() {
             style={styles.button}
             onClick={() => changeStep(1)}
           >
-            Yes 💖
+            Ok 💖
           </button>
 
           {/* NO BUTTON (RUNS AWAY) */}
           <button
   onMouseEnter={(e) => {
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 120);
+    const padding = 80;
+
+const x = Math.random() * (window.innerWidth - padding);
+const y = Math.random() * (window.innerHeight - padding);
 
     e.currentTarget.style.position = "absolute";
     e.currentTarget.style.left = `${x}px`;
@@ -91,8 +93,10 @@ export default function Home() {
   }}
 
   onClick={(e) => {
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 120);
+    const padding = 80;
+
+const x = Math.random() * (window.innerWidth - padding);
+const y = Math.random() * (window.innerHeight - padding);
 
     e.currentTarget.style.position = "absolute";
     e.currentTarget.style.left = `${x}px`;
@@ -100,13 +104,14 @@ export default function Home() {
   }}
 
   style={{
-    ...styles.buttonSecondary,
-    position: "absolute",
-    left: "60%",
-    top: "60%",
-    transition: "0.15s",
-    zIndex: 10
-  }}
+  ...styles.buttonSecondary,
+  position: "absolute",
+  left: "50%",
+  top: "65%",
+  transform: "translate(-50%, -50%)",
+  transition: "0.2s",
+  zIndex: 10
+}}
 >
   No ❌
 </button>
@@ -117,7 +122,7 @@ export default function Home() {
       {step === 1 && (
         <div style={{ ...styles.center, opacity: fade ? 1 : 0, transition: "0.5s" }}>
           <p style={styles.typewriter}>
-            Before anything else... I’m sorry.
+            Хамгийн түрүүнд ... Намайг үнэхээр уучлаарай.
           </p>
 
           <button style={styles.button} onClick={() => changeStep(2)}>
@@ -141,7 +146,7 @@ export default function Home() {
       style={styles.button}
       onClick={() => changeStep(3)}
     >
-      Open letter 💌
+      Захидлыг нээх 💌
     </button>
 
   </div>
@@ -155,16 +160,17 @@ export default function Home() {
       <h2>Dear you,</h2>
 
       <p style={styles.typewriter}>
-        I don’t expect anything from you...<br /><br />
+        Намайг блоклосон шийдвэрийг чинь ойлгож бас хүндэлж байгаа...<br /><br />
 
-        I just wanted to say I’m truly sorry.<br /><br />
+        Сүүлд болсон явдлыг зүйлүүдийг их бодлоо...<br /><br />
 
-        I understand if I hurt you, and I take responsibility for it.<br /><br />
+        Та яг юу сонссон, ямар байдлаар хүрснийг бүрэн мэдэхгүй ч зарим нь буруугаар хүрсэн байх...<br /><br />
 
-        I’m not asking you to forget anything.<br />
-        I just wanted you to know I regret how things went.<br /><br />
-
-        Thank you for reading this 💌
+        Ямар ч байсан бай, бидний хоорондох зүйл бусдын чихэнд хүрсэн нь миний буруу...<br />
+        Би таныг гомдоох эсвэл итгэлийг тань хөсөрдүүлэхийг зориогүй ч ярьсан зүйлээ зөвтгөхгүй...<br /><br />
+        Зүгээр л би өөрийнхөө бурууг ойлгож, уучлалт хүсэж байгаагаа хэлэх гэсэн юм...<br /><br />
+        Та миний хувьд үнэхээр чухал хүн байсан, одоо ч гэсэн...<br /><br />
+        Энэ хүртэл уншсанд баярлалаа бас уучлаарай 💌
       </p>
 
     </div>
@@ -181,10 +187,10 @@ export default function Home() {
 {step === 4 && (
   <div style={{ ...styles.center, opacity: fade ? 1 : 0, transition: "0.5s" }}>
 
-    <h2>Thank you for reading</h2>
+    
 
     <p style={styles.text}>
-      Whatever you feel, I respect it.
+      Та ямар ч шийдвэр гаргасан бай би хүндэлнээ.
     </p>
 
     <div style={{ display: "flex", gap: 10 }}>
@@ -248,7 +254,7 @@ export default function Home() {
 
 {step === 5 && (
   <div style={{ ...styles.center, animation: "fadeIn 0.8s ease-in-out" }}>
-    <h2>Thank you ❤️</h2>
+    <h2>Баярлалаа ❤️</h2>
 
     <p style={styles.text}>
       Your response has been received.
@@ -302,18 +308,21 @@ export default function Home() {
 
 const styles = {
   container: {
-    height: "100vh",
-    width: "100vw",
-    background: "linear-gradient(180deg, #ff9a9e, #fad0c4, #fbc2eb)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontFamily: "Arial",
-    textAlign: "center",
-    padding: 20,
-    overflow: "hidden",
-    position: "relative",
-  },
+  minHeight: "100vh",
+  width: "100%",
+  background: "linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontFamily: "Arial",
+  textAlign: "center",
+  padding: "20px",
+  overflow: "hidden",
+  position: "relative",
+
+  // MOBILE SAFETY
+  boxSizing: "border-box",
+},
     envelope: {
   fontSize: 60,
   animation: "float 3s ease-in-out infinite",
@@ -330,12 +339,15 @@ const styles = {
   },
 
   center: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 15,
-    position: "relative",
-  },
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 14,
+  position: "relative",
+  width: "100%",
+  maxWidth: 420,
+},
 
   title: {
     fontSize: 40,
@@ -343,14 +355,18 @@ const styles = {
   },
 
   text: {
-    fontSize: 18,
-    color: "#444",
-  },
+  fontSize: "16px",
+  color: "#444",
+  lineHeight: 1.5,
+  padding: "0 10px",
+},
 
-  typewriter: {
-    fontSize: 22,
-    color: "#333",
-  },
+typewriter: {
+  fontSize: "18px",
+  color: "#333",
+  lineHeight: 1.6,
+  padding: "0 10px",
+},
 
   letter: {
     background: "white",
@@ -361,20 +377,26 @@ const styles = {
   },
 
   button: {
-    padding: "10px 18px",
-    borderRadius: 12,
-    border: "none",
-    background: "#d85c7a",
-    color: "white",
-    cursor: "pointer",
-  },
+  padding: "12px 20px",
+  borderRadius: 12,
+  border: "none",
+  background: "#d85c7a",
+  color: "white",
+  cursor: "pointer",
+  fontSize: "16px",
+  minWidth: 140,
+  touchAction: "manipulation",
+},
 
-  buttonSecondary: {
-    padding: "10px 18px",
-    borderRadius: 12,
-    border: "1px solid #d85c7a",
-    background: "white",
-    color: "#d85c7a",
-    cursor: "pointer",
-  },
+buttonSecondary: {
+  padding: "12px 20px",
+  borderRadius: 12,
+  border: "1px solid #d85c7a",
+  background: "white",
+  color: "#d85c7a",
+  cursor: "pointer",
+  fontSize: "16px",
+  minWidth: 140,
+  touchAction: "manipulation",
+},
 };
